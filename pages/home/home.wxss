@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ccc;
+}
+
+.container .category {
+  padding: 30rpx 0 30rpx 30rpx;
+  background-color: #fff;
+}
+
+.container .category .category-swiper-item {
+  border-radius: 20rpx;
+  width: 300rpx;
+  height: 150rpx;
+  background-image: linear-gradient(to right, #ed8d44, #eb6d59);
+}
+
+.container .category .category-swiper-name {
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  color: #fff;
+}

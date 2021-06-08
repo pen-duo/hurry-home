@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="left">
+    <view class="type-tag">{{service.type === 1 ? "在提供" : "正在找"}}</view>
+    <image
+      mode="aspectFill"
+      class="cover-image"
+      src="{{service.cover_image.path}}"
+    />
+  </view>
+  <view class="right">
+    <view class="row">
+      <view class="service-title">{{service.title}}</view>
+      <view class="category">
+        <i class="iconfont icon-tag" style="font-size:40rpx;color:#FBC02D;margin-right:20rpx"></i>
+        {{service.category.name}}
+      </view>
+    </view>
+    <view class="row">
+      <view class="publisher">
+        <view class="publisher-avatar">
+          <image class="publisher-avatar-image" src="{{service.publisher.avatar}}" />
+        </view>
+        <view class="publisher-nickname">{{service.publisher.nickname}}</view>
+      </view>
+      <view class="score"></view>
+    </view>
+    <view class="row">
+      <view class="create-time">{{service.create_time}}</view>
+    </view>
+    <view class="row row-last">
+      <view class="price">
+        <text class="label">￥</text>
+        {{service.price}}
+      </view>
+      <view class="sales">已售{{service.sales_volume}}</view>
+    </view>
+  </view>
+</view>
+

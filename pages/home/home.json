@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "TabBar":"/components/TabBar/TabBar",
+    "Service-Preview":"/components/service-preview/service-preview"
+  },
+  "navigationBarTitleText":"服务广场",
+  "navigationBarBackgroundColor":"#FBC02D"
+}

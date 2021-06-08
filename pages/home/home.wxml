@@ -1,0 +1,34 @@
+<view class="container">
+  <TabBar
+    style="height:100%;"
+    titles="{{tabs}}"
+    bind:tabItemChange="handleItemChange"
+  >
+    <view slot="extend">
+      <view class="category">
+        <swiper
+          style="height:150rpx"
+          display-multiple-items="{{2}}"
+          next-margin="60rpx"
+        >
+          <swiper-item
+            wx:for="{{categoryList}}"
+            wx:key="id"
+            bindtap="handleCategoryChange"
+            data-id="{{item.id}}"
+          >
+            <view class="category-swiper-item">
+              <text class="category-swiper-name">{{item.name}}</text>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+    <view slot="panel">
+      <view wx:for="{{serviceList}}" wx:key="index">
+        <Service-Preview service="{{item}}"></Service-Preview>
+      </view>
+    </view>
+  </TabBar>
+</view>
+
