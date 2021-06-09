@@ -2,7 +2,7 @@
   <TabBar
     style="height:100%;"
     titles="{{tabs}}"
-    bind:tabItemChange="handleItemChange"
+    bind:tabItemChange="handleTabChange"
   >
     <view slot="extend">
       <view class="category">

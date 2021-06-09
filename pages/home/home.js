@@ -22,7 +22,9 @@ Page({
       isActive: false
     }],
     categoryList: [],
-    serviceList: []
+    serviceList: [],
+    tabIndex: 0,
+    categoryId: 0
   },
 
   /**
@@ -34,10 +36,10 @@ Page({
 
   },
   async _getServiceList() {
-    const serviceList = await service.getServiceList()
+    const serviceList = await service.reset().getServiceList(this.data.categoryId, this.data.tabIndex)
     console.log(serviceList);
     this.setData({
-      serviceList: serviceList
+      serviceList
 
     })
   },
@@ -47,25 +49,35 @@ Page({
       categoryList
     })
   },
-  handleItemChange(e) {
+  handleTabChange(e) {
+    console.log(e);
     const {
-      index
+      index: tabIndex
     } = e.detail
+    this.data.tabIndex = tabIndex
     let {
       tabs
     } = this.data
-    tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false)
+    tabs.forEach((v, i) => i === tabIndex ? v.isActive = true : v.isActive = false)
     this.setData({
       tabs
     })
+    this._getServiceList()
   },
   handleCategoryChange(e) {
+    if (this.data.categoryId === e.currentTarget.dataset.id) {
+      return
+    }
     const {
-      id
+      id: categoryId
     } = e.currentTarget.dataset
+    this.data.categoryId = categoryId
+    this._getServiceList()
   },
   // 下拉刷新
-  onPullDownRefresh() {
+  async onPullDownRefresh() {
+    this._getServiceList()
+    wx.stopPullDownRefresh()
 
   },
   // 上拉触底
@@ -73,7 +85,7 @@ Page({
     if (!service.hasMoreData) {
       return
     }
-    const serviceList = await service.getServiceList()
+    const serviceList = await service.getServiceList(this.data.categoryId, this.data.tabIndex)
     this.setData({
       serviceList
     })
