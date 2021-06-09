@@ -22,7 +22,7 @@ Page({
       isActive: false
     }],
     categoryList: [],
-    serviceList:[]
+    serviceList: []
   },
 
   /**
@@ -33,12 +33,13 @@ Page({
     this._getCategoryList()
 
   },
- async _getServiceList() {
-   const serviceList = await service.getServiceList(1, 10)
-   console.log(serviceList);
-   this.setData({
-     serviceList:serviceList.data
-   })
+  async _getServiceList() {
+    const serviceList = await service.getServiceList()
+    console.log(serviceList);
+    this.setData({
+      serviceList: serviceList
+
+    })
   },
   async _getCategoryList() {
     const categoryList = await Category.getCategoryListWithAll()
@@ -62,5 +63,19 @@ Page({
     const {
       id
     } = e.currentTarget.dataset
+  },
+  // 下拉刷新
+  onPullDownRefresh() {
+
+  },
+  // 上拉触底
+  async onReachBottom() {
+    if (!service.hasMoreData) {
+      return
+    }
+    const serviceList = await service.getServiceList()
+    this.setData({
+      serviceList
+    })
   }
 })

@@ -6,7 +6,7 @@
     "pages/publish/publish"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
@@ -37,6 +37,10 @@
       "iconPath": "images/tabbar/my.png",
       "selectedIconPath": "images/tabbar/my-o.png"
     }]
+  },
+  "usingComponents":{
+    "i-icon":"/components/icon/icon",
+    "Service-Preview":"/components/service-preview/service-preview"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

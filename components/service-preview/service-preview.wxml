@@ -11,8 +11,8 @@
     <view class="row">
       <view class="service-title">{{service.title}}</view>
       <view class="category">
-        <i class="iconfont icon-tag" style="font-size:40rpx;color:#FBC02D;margin-right:20rpx"></i>
-        {{service.category.name}}
+        <i-icon name="tag" color="#f27013"></i-icon>
+        <view class="category-text">{{service.category.name}}</view>
       </view>
     </view>
     <view class="row">
@@ -22,7 +22,7 @@
         </view>
         <view class="publisher-nickname">{{service.publisher.nickname}}</view>
       </view>
-      <view class="score"></view>
+      <view class="score"> ★ {{service.score}}</view>
     </view>
     <view class="row">
       <view class="create-time">{{service.create_time}}</view>
@@ -32,7 +32,7 @@
         <text class="label">￥</text>
         {{service.price}}
       </view>
-      <view class="sales">已售{{service.sales_volume}}</view>
+      <view class="sales">已售 {{service.sales_volume}}</view>
     </view>
   </view>
 </view>
