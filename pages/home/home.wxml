@@ -1,7 +1,9 @@
+<import src="home.skeleton.wxml" />
+<template is="skeleton" wx:if="{{loading}}" />
 <view class="container">
-  <TabBar
+  <i-tabs
     style="height:100%;"
-    titles="{{tabs}}"
+    tabs="{{tabs}}"
     bind:tabItemChange="handleTabChange"
   >
     <view slot="extend">
@@ -26,9 +28,14 @@
     </view>
     <view slot="panel">
       <view wx:for="{{serviceList}}" wx:key="index">
-        <Service-Preview service="{{item}}"></Service-Preview>
+        <Service-Preview class="service-preview" service="{{item}}"></Service-Preview>
       </view>
+      <i-show-status
+        show="{{serviceList.length < 1}}"
+        content="暂时还没有任何服务"
+        top="220"
+      ></i-show-status>
     </view>
-  </TabBar>
+  </i-tabs>
 </view>
 

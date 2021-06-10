@@ -1,4 +1,6 @@
-// components/tabs/tabs.js
+import {
+  throttle
+} from "../../utils/utils"
 Component({
   /**
    * 组件的属性列表
@@ -7,7 +9,7 @@ Component({
     multipleSlots: true
   },
   properties: {
-    titles: {
+    tabs: {
       type: Array,
       value: []
     },
@@ -25,7 +27,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    handleItemClick(e) {
+    handleTabChange: throttle(function (e) {
       const {
         index
       } = e.currentTarget.dataset
@@ -38,7 +40,7 @@ Component({
       this.triggerEvent("tabItemChange", {
         index
       })
-    },
+    }),
     handleTouchMove(e) {
       const {
         direction
@@ -46,7 +48,7 @@ Component({
 
       const currentTabIndex = this.data.currentTabIndex
       const targetTabIndex = direction + currentTabIndex
-      if (targetTabIndex < 0 || targetTabIndex > this.data.titles.length - 1) {
+      if (targetTabIndex < 0 || targetTabIndex > this.data.tabs.length - 1) {
         return
       }
       const customEvent = {
@@ -56,7 +58,7 @@ Component({
           }
         }
       }
-      this.handleItemClick(customEvent)
+      this.handleTabChange(customEvent)
     }
   }
 })

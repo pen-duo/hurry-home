@@ -1,10 +1,11 @@
 .container {
-  background-color: #fff;
   border-radius: 10rpx;
   padding: 30rpx 30rpx;
   width: 100%;
   display: flex;
   font-size: 22rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
 }
 
 .container .left {

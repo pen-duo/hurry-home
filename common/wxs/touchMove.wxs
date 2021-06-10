@@ -5,19 +5,20 @@ function handleTouchStart(e) {
 }
 
 function handleTouchEnd(e, ownerInstance) {
-  var touchEndX = e.changedTouches[0].clientY
-  var distance = touchEndX - touchStartX
+  var touchEndX = e.changedTouches[0].clientX
+
+  var distanceX = touchEndX - touchStartX
+
   var direction = 0
-  if (distance < 0 && distance < -50) {
+  if (distanceX < 0 && distanceX < -100) {
     direction = 1
   }
 
-  if (distance > 0 && distance > 50) {
+  if (distanceX > 0 && distanceX > 100) {
     direction = -1
   }
 
   if (direction !== 0) {
-    console.log(direction);
     ownerInstance.callMethod("handleTouchMove", {
       direction: direction
     })

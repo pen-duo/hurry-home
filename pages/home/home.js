@@ -2,6 +2,9 @@ import Service from "../../modal/service"
 import Category from "../../modal/category"
 import regeneratorRuntime from "../../lib/runtime/runtime"
 const service = new Service()
+import {
+  throttle
+} from "../../utils/utils"
 Page({
 
   /**
@@ -11,36 +14,35 @@ Page({
     tabs: [{
       value: "所有服务",
       id: 1,
-      isActive: true
     }, {
       value: "在提供",
       id: 2,
-      isActive: false
     }, {
       value: "正在找",
       id: 3,
-      isActive: false
     }],
     categoryList: [],
     serviceList: [],
     tabIndex: 0,
-    categoryId: 0
+    categoryId: 0,
+    loading: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this._getServiceList()
-    this._getCategoryList()
+  onLoad: async function (options) {
+    await this._getServiceList()
+    await this._getCategoryList()
+    this.setData({
+      loading: false
+    })
 
   },
   async _getServiceList() {
     const serviceList = await service.reset().getServiceList(this.data.categoryId, this.data.tabIndex)
-    console.log(serviceList);
     this.setData({
       serviceList
-
     })
   },
   async _getCategoryList() {
@@ -50,32 +52,22 @@ Page({
     })
   },
   handleTabChange(e) {
-    console.log(e);
     const {
-      index: tabIndex
+      index
     } = e.detail
-    this.data.tabIndex = tabIndex
-    let {
-      tabs
-    } = this.data
-    tabs.forEach((v, i) => i === tabIndex ? v.isActive = true : v.isActive = false)
-    this.setData({
-      tabs
-    })
+    this.data.tabIndex = index
     this._getServiceList()
   },
-  handleCategoryChange(e) {
+  handleCategoryChange: throttle(function (e) {
     if (this.data.categoryId === e.currentTarget.dataset.id) {
       return
     }
-    const {
-      id: categoryId
-    } = e.currentTarget.dataset
-    this.data.categoryId = categoryId
+    this.data.categoryId = e.currentTarget.dataset.id
     this._getServiceList()
-  },
+  }),
   // 下拉刷新
   async onPullDownRefresh() {
+    console.log(2);
     this._getServiceList()
     wx.stopPullDownRefresh()
 

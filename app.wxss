@@ -15,4 +15,5 @@ navigator {
 page {
   height: 100%;
   color: #333;
+  background-color: #efefef;
 }
