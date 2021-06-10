@@ -28,7 +28,12 @@
     </view>
     <view slot="panel">
       <view wx:for="{{serviceList}}" wx:key="index">
-        <Service-Preview class="service-preview" service="{{item}}"></Service-Preview>
+        <Service-Preview
+          class="service-preview"
+          service="{{item}}"
+          data-service="{{item}}"
+          bind:tap="handleSelectService"
+        ></Service-Preview>
       </view>
       <i-show-status
         show="{{serviceList.length < 1}}"

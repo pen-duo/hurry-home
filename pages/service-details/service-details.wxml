@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="service-info">
+    <view class="cover-image"></view>
+    <view class="row">
+      <view class="title"></view>
+      <view class="category"></view>
+    </view>
+    <view class="row">
+      <view class="publisher"></view>
+      <view class="score"></view>
+    </view>
+    <view class="row">
+      <view class="create-time"></view>
+    </view>
+    <view class="row">
+      <view class="price"></view>
+      <view class="sales-volums"></view>
+    </view>
+    <view class="row">
+      <view class="description"></view>
+    </view>
+  </view>
+  <view class="service-status">
+    <view class="label"></view>
+    <view class="status"></view>
+  </view>
+  <view class="rating-list">
+
+  </view>
+  <view class="action-bar"></view>
+</view>
+

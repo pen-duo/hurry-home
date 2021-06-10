@@ -4,7 +4,7 @@ import regeneratorRuntime from "../lib/runtime/runtime"
 class Category {
   static async getCategoryList() {
     return await Http.request({
-      url: "/v1/category",
+      url: "v1/category",
     })
   }
   static async getCategoryListWithAll() {

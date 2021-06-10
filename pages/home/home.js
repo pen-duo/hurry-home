@@ -81,5 +81,12 @@ Page({
     this.setData({
       serviceList
     })
+  },
+  handleSelectService(e) {
+    const service = e.currentTarget.dataset.service
+    wx.navigateTo({
+      url: '/pages/service-details/service-details?service_id=' + service.id,
+    });
+
   }
 })

@@ -10,7 +10,7 @@ class Service {
       return this.data
     }
     const serviceList = await Http.request({
-      url: "/v1/service/list",
+      url: "v1/service/list",
       data: {
         page: this.page,
         count: this.count,
@@ -22,6 +22,11 @@ class Service {
     this.hasMoreData = !(this.page === serviceList.last_page)
     this.page++
     return this.data
+  }
+  static getServiceById(serviceId) {
+    return Http.request({
+      url: `v1/service/${serviceId}`
+    })
   }
   reset() {
     this.page = 1

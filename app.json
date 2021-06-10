@@ -1,49 +1,54 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/home",
     "pages/message/message",
     "pages/my/my",
-    "pages/publish/publish"
+    "pages/publish/publish",
+    "pages/service-details/service-details"
   ],
-  "window":{
-    "backgroundTextStyle":"dark",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "速到家",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "backgroundColorBottom": "#efefef"
   },
   "tabBar": {
     "borderStyle": "white",
     "selectedColor": "#FBC02D",
     "color": "#8a8a8a",
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "广场",
-      "iconPath": "images/tabbar/home.png",
-      "selectedIconPath": "images/tabbar/home-o.png"
-    },
-    {
-      "pagePath": "pages/publish/publish",
-      "text": "发布",
-      "iconPath": "images/tabbar/publish.png",
-      "selectedIconPath": "images/tabbar/publish-o.png"
-    },{
-      "pagePath": "pages/message/message",
-      "text": "消息",
-      "iconPath": "images/tabbar/message.png",
-      "selectedIconPath": "images/tabbar/message-o.png"
-    },{
-      "pagePath": "pages/my/my",
-      "text": "我的",
-      "iconPath": "images/tabbar/my.png",
-      "selectedIconPath": "images/tabbar/my-o.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "广场",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home-o.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "发布",
+        "iconPath": "images/tabbar/publish.png",
+        "selectedIconPath": "images/tabbar/publish-o.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "images/tabbar/message.png",
+        "selectedIconPath": "images/tabbar/message-o.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/tabbar/my.png",
+        "selectedIconPath": "images/tabbar/my-o.png"
+      }
+    ]
   },
-  "usingComponents":{
-    "i-icon":"/components/icon/icon",
-    "i-tabs":"/components/TabBar/TabBar",
-    "Service-Preview":"/components/service-preview/service-preview",
-    "i-show-status":"/components/show-status/show-status"
+  "usingComponents": {
+    "i-icon": "/components/icon/icon",
+    "i-tabs": "/components/TabBar/TabBar",
+    "Service-Preview": "/components/service-preview/service-preview",
+    "i-show-status": "/components/show-status/show-status"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
