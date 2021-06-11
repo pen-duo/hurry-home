@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+}
+
+.container .item {
+  padding: 10rpx 10rpx;
+}

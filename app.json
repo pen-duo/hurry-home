@@ -4,7 +4,8 @@
     "pages/message/message",
     "pages/my/my",
     "pages/publish/publish",
-    "pages/service-details/service-details"
+    "pages/service-details/service-details",
+    "components/rating/rating"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -49,7 +50,11 @@
     "i-tabs": "/components/TabBar/TabBar",
     "Service-Preview": "/components/service-preview/service-preview",
     "i-show-status": "/components/show-status/show-status",
-    "i-avatar": "/components/avatar/avatar"
+    "i-avatar": "/components/avatar/avatar",
+    "i-rating": "/components/rating/rating",
+    "i-service-rating": "/components/service-rating/service-rating"
+
+
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

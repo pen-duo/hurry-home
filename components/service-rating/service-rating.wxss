@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+  flex-direction: center;
+  justify-content: space-between;
+}
+
+.row .create-time {
+  color: #888888;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+}

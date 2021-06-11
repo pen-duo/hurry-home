@@ -14,51 +14,55 @@
   width: 100%;
   background-color: #fff;
   padding-bottom: 30rpx;
-}
+
+  .cover-image image {
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    margin-top: 30rpx;
+    padding: 0rpx 30rpx;
+
+    .title {
+      font-size: 32rpx;
+      font-weight: bold;
+    }
+
+    .category {
+      display: flex;
+      align-items: center;
+      margin-left: 20rpx;
+
+      .tag-text {
+        margin-left: 10rpx;
+      }
+    }
 
 
-.cover-image image {
-  width: 100%;
-}
 
-.row {
-  display: flex;
-  align-items: center;
-  margin-top: 30rpx;
-  padding: 0rpx 30rpx;
-}
+    .score {
+      margin-left: 30rpx;
+      color: #f27013;
+    }
 
-.title {
-  font-size: 32rpx;
-  font-weight: bold;
-}
+    .price {
+      font-size: 32rpx;
+      color: red;
 
-.category {
-  display: flex;
-  align-items: center;
-  margin-left: 20rpx;
-}
+      .label {
+        font-size: 24rpx;
+      }
+    }
 
-.tag-text {
-  margin-left: 10rpx;
-}
 
-.score {
-  margin-left: 30rpx;
-  color: #f27013;
-}
 
-.price {
-  font-size: 32rpx;
-  color: red;
-}
+  }
 
-.label {
-  font-size: 24rpx;
-}
-
-.row-space-between {
-  justify-content: space-between;
+  .row-space-between {
+    justify-content: space-between;
+  }
 }
 
 
@@ -71,30 +75,33 @@
   background-color: #fff;
 }
 
-.service-rating {
-  min-height: 500rpx;
-}
-
 .service-status {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.service-rating-title {
-  padding-bottom: 20rpx;
-  border-bottom: 1px solid #efefef;
+.service-rating {
+  min-height: 500rpx;
+
+  .service-rating-title {
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #efefef;
+  }
+
+  .service-rating-list {
+    margin-top: 30rpx;
+  }
+
+  .service-rating-item {
+    margin-bottom: 30rpx;
+    padding-bottom: 30rpx;
+    border-bottom: 1px solid #efefef;
+  }
 }
 
-.service-rating-list {
-  margin-top: 30rpx;
-}
 
-.rating-item {
-  margin-bottom: 30rpx;
-  padding-bottom: 30rpx;
-  border-bottom: 1px solid #efefef;
-}
+
 
 .action-bar {
   box-sizing: border-box;
@@ -105,11 +112,11 @@
   position: fixed;
   bottom: 0;
   z-index: 2;
-}
 
-.action-bar-item {
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  justify-content: space-between;
+  .action-bar-item {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+  }
 }
