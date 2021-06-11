@@ -17,12 +17,15 @@
     </view>
     <view class="row">
       <view class="publisher">
-        <view class="publisher-avatar">
-          <image class="publisher-avatar-image" src="{{service.publisher.avatar}}" />
-        </view>
-        <view class="publisher-nickname">{{service.publisher.nickname}}</view>
+        <i-avatar
+          shape="circle"
+          src="{{service.publisher.avatar}}"
+          text="{{service.publisher.nickname}}"
+          size="50"
+          fontSize="28"
+        ></i-avatar>
       </view>
-      <view class="score"> ★ {{service.score}}</view>
+      <view class="score">★ {{service.score}}</view>
     </view>
     <view class="row">
       <view class="create-time">{{service.create_time}}</view>

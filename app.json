@@ -48,7 +48,8 @@
     "i-icon": "/components/icon/icon",
     "i-tabs": "/components/TabBar/TabBar",
     "Service-Preview": "/components/service-preview/service-preview",
-    "i-show-status": "/components/show-status/show-status"
+    "i-show-status": "/components/show-status/show-status",
+    "i-avatar": "/components/avatar/avatar"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

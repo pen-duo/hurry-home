@@ -1,32 +1,45 @@
 <view class="container">
   <view class="service-info">
-    <view class="cover-image"></view>
-    <view class="row">
-      <view class="title"></view>
-      <view class="category"></view>
+    <view class="cover-image">
+      <image mode="widthFix" src="{{service.cover_image.path}}" />
     </view>
     <view class="row">
-      <view class="publisher"></view>
-      <view class="score"></view>
+      <view class="title">{{service.title}}</view>
+      <view class="category">
+        <i-icon name="biaoqian" color="#f27013"></i-icon>
+        <view class="tag-text">{{service.category.name}}</view>
+      </view>
     </view>
     <view class="row">
-      <view class="create-time"></view>
+      <view class="publisher">
+        <i-avatar
+          shape="circle"
+          src="{{service.publisher.avatar}}"
+          text="{{service.publisher.nickname}}"
+          size="60"
+        ></i-avatar>
+      </view>
+      <view wx:if="{{service.type === serviceType.PROVIDE}}" class="score">★ {{service.score}}</view>
     </view>
     <view class="row">
-      <view class="price"></view>
-      <view class="sales-volums"></view>
+      <view class="create-time">{{service.create_time}}</view>
+    </view>
+    <view class="row row-space-between">
+      <view class="price">
+        <text class="label">￥</text>
+        {{service.price}}
+      </view>
+      <view class="sales-volume" wx:if="{{service.type === 1}}">已售 {{service.sales_volume}}</view>
     </view>
     <view class="row">
-      <view class="description"></view>
+      <view class="description">{{service.description}}</view>
     </view>
   </view>
   <view class="service-status">
     <view class="label"></view>
     <view class="status"></view>
   </view>
-  <view class="rating-list">
-
-  </view>
+  <view class="rating-list"></view>
   <view class="action-bar"></view>
 </view>
 

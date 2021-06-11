@@ -1,0 +1,30 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "服务详情",
+          "pathName": "pages/service-details/service-details",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "服务详情",
+          "pathName": "pages/service-details/service-details",
+          "query": "service_id=54",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
