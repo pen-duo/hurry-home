@@ -5,7 +5,8 @@
     "pages/my/my",
     "pages/publish/publish",
     "pages/service-details/service-details",
-    "components/rating/rating"
+    "components/rating/rating",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -18,7 +19,8 @@
     "borderStyle": "white",
     "selectedColor": "#FBC02D",
     "color": "#8a8a8a",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/home/home",
         "text": "广场",
         "iconPath": "images/tabbar/home.png",
@@ -53,7 +55,6 @@
     "i-rating": "/components/rating/rating",
     "i-service-rating": "/components/service-rating/service-rating",
     "i-safe-area": "/components/safe-area/safe-area"
-
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -1,0 +1,40 @@
+page {
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.container .user-info {
+  margin-top: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .user-info .avatar {
+  width: 220rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.container .user-info .nickname {
+  margin-left: 30rpx;
+}
+
+.container .button-area {
+  margin-top: 60rpx;
+}
+
+.container .button-area .login-button {
+  background-color: #f3d066;
+}
+
+.container .button-area .back-home-button {
+  margin-top: 30rpx;
+}
