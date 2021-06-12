@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-publisher-action":"./components/publisher-action/publisher-action",
+    "i-consumer-action":"./components/consumer-action/consumer-action"
+  }
 }

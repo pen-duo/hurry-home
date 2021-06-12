@@ -17,6 +17,16 @@ function throttle(callback, duration = 500) {
     // 没超过，啥也不干
   }
 }
+
+function getDataSet(event, target) {
+  return event.currentTarget.dataset[target]
+}
+
+function getEventParams(event, target) {
+  return event.detail[target]
+}
 export {
-  throttle
+  throttle,
+  getDataSet,
+  getEventParams
 }

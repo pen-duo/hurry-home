@@ -15,7 +15,6 @@ class Rating extends Base {
         service_id: serviceId || "",
       }
     })
-    console.log(ratingList);
     this.data = this.data.concat(ratingList.data)
     this.hasMoreData = !(this.page === ratingList.last_page)
     this.page++

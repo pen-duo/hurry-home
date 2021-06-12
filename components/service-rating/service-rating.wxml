@@ -2,13 +2,13 @@
   <view class="row">
     <view class="author">
       <i-avatar
-        sharp="circle"
+        shape="circle"
         src="{{rating.author.avatar}}"
         text="{{rating.author.nickname}}"
-        size="40"
+        size="60"
       ></i-avatar>
     </view>
-    <view class="create-time">{{rating.create-time}}</view>
+    <view class="create-time">{{rating.create_time}}</view>
   </view>
   <view class="score">
     评分:
@@ -17,6 +17,17 @@
       selected="{{rating.score}}"
       size="{{36}}"
     ></i-rating>
+  </view>
+  <veiw class="content">{{rating.content}}</veiw>
+  <view wx:if="{{rating.illustration.length}}" class="illustration">
+    <block wx:for="{{rating.illustration}}" wx:key="index">
+      <image
+        bind:tap="handlePreview"
+        data-index="{{index}}"
+        src="{{item}}"
+        class="illustration-image"
+      />
+    </block>
   </view>
 </view>
 

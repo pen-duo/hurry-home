@@ -1,9 +1,9 @@
-<view
-  class="container"
-  wx:for="{{count}}"
-  wx:key="{{index}}"
->
-  <view class="item">
+<view class="container">
+  <view
+    wx:for="{{count}}"
+    wx:key="index"
+    class="item"
+  >
     <i-icon
       name="{{icon}}"
       size="{{size}}"

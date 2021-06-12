@@ -14,7 +14,7 @@ Component({
     },
     size: {
       type: String,
-      value: 40
+      value: "40"
     },
     defaultColor: {
       type: String,

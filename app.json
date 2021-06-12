@@ -18,8 +18,7 @@
     "borderStyle": "white",
     "selectedColor": "#FBC02D",
     "color": "#8a8a8a",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/home/home",
         "text": "广场",
         "iconPath": "images/tabbar/home.png",
@@ -52,8 +51,8 @@
     "i-show-status": "/components/show-status/show-status",
     "i-avatar": "/components/avatar/avatar",
     "i-rating": "/components/rating/rating",
-    "i-service-rating": "/components/service-rating/service-rating"
-
+    "i-service-rating": "/components/service-rating/service-rating",
+    "i-safe-area": "/components/safe-area/safe-area"
 
   },
   "style": "v2",

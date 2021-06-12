@@ -67,7 +67,6 @@ Page({
   }),
   // 下拉刷新
   async onPullDownRefresh() {
-    console.log(2);
     this._getServiceList()
     wx.stopPullDownRefresh()
 

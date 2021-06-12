@@ -1,3 +1,7 @@
+const {
+  default: serviceType
+} = require("../../enum/service-type");
+
 // components/service-preview/service-preview.js
 Component({
   /**
@@ -13,7 +17,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    serviceTypeEnum: serviceType
   },
 
   /**

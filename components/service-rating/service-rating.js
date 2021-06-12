@@ -18,6 +18,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    handlePreview(e) {
+      const index = e.currentTarget.dataset.index
+      wx.previewImage({
+        current: '',
+        urls: this.data.rating.illustration,
+        current: this.data.rating.illustration[index]
+      });
 
+    }
   }
 })
