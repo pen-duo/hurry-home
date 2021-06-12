@@ -1,6 +1,8 @@
 import regeneratorRuntime from "../lib/runtime/runtime"
 import APIConfig from "../config/api"
 import exceptionMessage from "../config/exception"
+const token = wx.getStorageSync("token");
+console.log(token);
 class Http {
   static async request({
     url,
@@ -12,6 +14,9 @@ class Http {
         url: APIConfig.baseUrl + url,
         data,
         method,
+        header: {
+          token
+        },
         success(res) {
           if (res.statusCode < 400) {
             resolve(res.data.data)

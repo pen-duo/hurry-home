@@ -8,7 +8,6 @@ import {
   getEventParams
 } from "../../utils/utils"
 import serviceAction from "../../enum/service-action"
-import serviceStatus from "../../enum/service-status"
 
 const rating = new Rating()
 

@@ -1,4 +1,6 @@
-// pages/login/login.js
+import regeneratorRuntime from "../../lib/runtime/runtime"
+import User from "../../modal/user";
+
 Page({
 
   /**
@@ -15,52 +17,18 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  async handleLogin() {
+    const res = await wx.getUserProfile({
+      desc: "完善用户信息"
+    })
+    wx.showLoading({
+      title: '正在授权',
+    });
+    await User.login()
+    await User.updateUserInfo(res.userInfo)
+    wx.hideLoading();
+    wx.navigateBack({});
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })
