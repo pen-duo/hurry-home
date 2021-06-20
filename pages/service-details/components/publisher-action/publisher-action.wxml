@@ -1,22 +1,34 @@
 <view class="action-bar-item">
-  <button
+  <i-button
+    bgColor="#fff"
+    shape="semicircle"
+    border
     wx:if="{{service.status !== serviceStatusEnum.CANCELED && service.status !== serviceStatusEnum.OFF_SHELVES}}"
     bind:tap="handleUpdateStatus"
     data-action="{{serviceActionEnum.CANCEL}}"
   >取消服务
-  </button>
-  <button wx:if="{{service.status !== serviceStatusEnum.CANCELED && service.status !== serviceStatusEnum.OFF_SHELVES}}" bind:tap="handleEditService">修改服务</button>
-  <button
+  </i-button>
+  <i-button
+    bgColor="#fff"
+    shape="semicircle"
+    border
+    wx:if="{{service.status !== serviceStatusEnum.CANCELED && service.status !== serviceStatusEnum.OFF_SHELVES}}"
+    bind:tap="handleEditService"
+  >修改服务
+  </i-button>
+  <i-button
+    shape="semicircle"
     wx:if="{{service.status === serviceStatusEnum.PUBLISHED }}"
     bind:tap="handleUpdateStatus"
     data-action="{{serviceActionEnum.PAUSE}}"
   >暂停服务
-  </button>
-  <button
+  </i-button>
+  <i-button
+    shape="semicircle"
     wx:if="{{service.status === serviceStatusEnum.UNPUBLISHED }}"
     bind:tap="handleUpdateStatus"
     data-action="{{serviceActionEnum.PUBLISH}}"
   >发布
-  </button>
+  </i-button>
 </view>
 

@@ -1,0 +1,99 @@
+<!--
+此文件为开发者工具生成，生成时间: 2021/6/20 下午11:41:26
+使用方法：
+在 C:\Users\24113\Desktop\慕慕到家\pages\service-details\service-details.wxml 引入模板
+
+```
+<import src="service-details.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 C:\Users\24113\Desktop\慕慕到家\pages\service-details\service-details.wxss 中引入样式
+```
+@import "./service-details.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="container">
+      <view class="inner-container">
+        <view class="service-info">
+          <view class="cover-image">
+            <image mode="widthFix" style="height: 375px;" class="sk-image"></image>
+          </view>
+          <view class="row">
+            <view class="title sk-transparent sk-text-18-7500-606 sk-text">找对象，看这里</view>
+            <view class="category">
+              <view is="components/icon/icon">
+                <view class="icon--iconfont icon--icon-biaoqian" style="font-size:34;color:#f27013;"></view>
+              </view>
+              <view class="tag-text sk-transparent sk-text-18-7500-944 sk-text">婚恋</view>
+            </view>
+          </view>
+          <view class="row">
+            <view class="publisher">
+              <view is="components/avatar/avatar">
+                <view class="avatar--container">
+                  <view class="avatar--avatar">
+                    <image class="avatar--avatar-image sk-image" style="width: 30px;height: 30px;border-radius: 50%"></image>
+                  </view>
+                  <view class="avatar--nickname sk-transparent sk-text-18-7500-412 sk-text" style="font-size: 14px">沁塵🙄</view>
+                </view>
+              </view>
+            </view>
+            <view class="score sk-transparent sk-text-18-7500-287 sk-text">★ 0</view>
+          </view>
+          <view class="row">
+            <view class="create-time sk-transparent sk-text-18-7500-256 sk-text">2021-06-05 10:44:17</view>
+          </view>
+          <view class="row row-space-between">
+            <view class="price sk-transparent">
+              <text class="label sk-transparent sk-opacity">￥</text> 5000.00
+            </view>
+            <view class="sales-volume sk-transparent sk-text-18-7500-552 sk-text">已售 0</view>
+          </view>
+          <view class="row">
+            <view class="description sk-transparent sk-text-18-7500-986 sk-text">专业红娘，成功率 99.9%，你的缘分就在这里！女生免费，男生收费，非诚勿扰。</view>
+          </view>
+        </view>
+        <view class="service-rating">
+          <view class="service-rating-title sk-transparent sk-text-18-7500-490 sk-text" style="border: none;">历史评价</view>
+          <view>
+            <view is="components/show-status/show-status">
+              <view class="status--container sk-transparent sk-text-18-7500-372 sk-text" style="margin-top:75px;">暂时还没有任何文本
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="action-bar" style="border: none;">
+        <view class="action-bar-item">
+          <view is="pages/service-details/components/consumer-action/consumer-action">
+            <view class="consumer-action--action-bar-item">
+              <view is="components/button/button">
+                <label for="harry-home">
+                  <view class="button--i-button-special sk-transparent" style="color:#333333;">
+                    <view is="components/icon/icon" style="margin-right:5px">
+                      <view class="icon--iconfont icon--icon-telephone sk-pseudo sk-pseudo-circle" style="font-size:34;color:#333333;"></view>
+                    </view>联系对方
+                  </view>
+                </label>
+              </view>
+              <view is="components/button/button">
+                <label for="harry-home">
+                  <view class="button--i-button button--shape-semicircle button--medium button--i-class sk-transparent sk-text-18-7500-574 sk-text" style="background-color:#f3d066;color:#333333;">立即预约
+                  </view>
+                </label>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view is="components/safe-area/safe-area">
+          <view class="area--safe-area-bottom"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

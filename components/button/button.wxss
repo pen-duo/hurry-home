@@ -1,3 +1,6 @@
+.test-button {
+  background-color: red ;
+}
 .i-button {
   white-space: nowrap;
   display: inline-flex;
@@ -30,7 +33,7 @@
 
 .medium {
   padding: 24rpx 48rpx;
-  width: 100rpx;
+  width: 150rpx;
 }
 
 .long {

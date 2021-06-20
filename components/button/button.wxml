@@ -1,4 +1,4 @@
-<label for="imooc">
+<label for="harry-home">
   <!--  常规按钮  -->
   <view
     wx:if="{{!special}}"
@@ -30,7 +30,7 @@
 </label>
 
 <button
-  id="imooc"
+  id="harry-home"
   wx:if="{{openType}}"
   style="position: absolute;top: -999px;left: -999px;"
   open-type="{{openType}}"

@@ -15,7 +15,7 @@
         {
           "name": "服务详情",
           "pathName": "pages/service-details/service-details",
-          "query": "",
+          "query": "service_id=17",
           "scene": null
         },
         {
@@ -28,6 +28,12 @@
           "name": "登录",
           "pathName": "pages/login/login",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单页",
+          "pathName": "pages/order/order",
+          "query": "service={\"id\":54,\"type\":1,\"designated_place\":0,\"title\":\"找对象，看这里\",\"description\":\"专业红娘，成功率 99.9%，你的缘分就在这里！女生免费，男生收费，非诚勿扰。\",\"price\":\"5000.00\",\"begin_date\":\"2021-06-05\",\"end_date\":\"2030-06-10\",\"score\":\"0\",\"sales_volume\":0,\"status\":2,\"create_time\":\"2021-06-05 10:44:17\",\"publisher\":{\"id\":23,\"nickname\":\"沁塵🙄\",\"avatar\":\"https://thirdwx.qlogo.cn/mmopen/vi_32/VN7Yge7wRZd3KiacWfSgM7ia2kDhIheia4PsCnSchaw8RHsxGyCv9bcCkewRrufibbyjQbT7nCo0yYe0V1xJUickGcQ/132\",\"real_name\":null,\"gender\":1,\"tel\":null},\"category\":{\"id\":7,\"name\":\"婚恋\"},\"cover_image\":{\"id\":113,\"path\":\"http://qinchenju.com/homemaking/storage/20210605/15383d4af36f425ce857f464d3f15daa.png\"}}",
           "scene": null
         }
       ]

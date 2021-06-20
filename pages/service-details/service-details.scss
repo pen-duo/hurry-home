@@ -5,7 +5,9 @@
   width: 100%;
 
 }
-
+.inner-container {
+  padding-bottom: 250rpx;
+}
 .service-container {
   padding-bottom: 300rpx;
 }
@@ -112,9 +114,4 @@
   bottom: 0;
   z-index: 2;
 
-  .action-bar-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
 }
