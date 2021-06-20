@@ -23,13 +23,21 @@ Page({
     try {
       await User.login();
       await User.updateUserInfo(res.userInfo);
+      const events = this.getOpenerEventChannel();
+      events.emit("login");
       wx.navigateBack();
     } catch (e) {
       wx.showModal({
-        title: "登录失败 请稍后重试",
+        title: "注意",
+        content: "登陆失败，请稍后重试",
       });
       console.log(e);
     }
     wx.hideLoading();
+  },
+  handleToHome() {
+    wx.switchTab({
+      url: "/pages/home/home",
+    });
   },
 });

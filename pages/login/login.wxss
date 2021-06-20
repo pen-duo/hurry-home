@@ -18,7 +18,7 @@ page {
 
 .container .user-info .avatar {
   width: 220rpx;
-  height: 200rpx;
+  height: 220rpx;
   border-radius: 50%;
   overflow: hidden;
 }
