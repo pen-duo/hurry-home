@@ -1,6 +1,6 @@
-import APIConfig from "../config/api"
-import Http from "../utils/http"
-import regeneratorRuntime from "../lib/runtime/runtime"
+import APIConfig from "../config/api";
+import Http from "../utils/http";
+import regeneratorRuntime from "../lib/runtime/runtime";
 
 class Token {
   static async getToken() {
@@ -8,11 +8,11 @@ class Token {
       url: "v1/token",
       data: {
         i_code: APIConfig.iCode,
-        order_no: APIConfig.orderNo
+        order_no: APIConfig.orderNo,
       },
-      method: "POST"
-    })
-    return res.token
+      method: "POST",
+    });
+    return res.token;
   }
 }
-export default Token
+export default Token;
