@@ -1,0 +1,23 @@
+<mp-form>
+  <mp-cell title="发布类型">
+    <picker range="{{typeList}}" range-key="name">
+      <view wx:if="{{typePickerIndex !== null}}">{{typeList[typePickerIndex].name}}</view>
+      <view wx:else class="picker-placeholder">请选择发布类型</view>
+    </picker>
+  </mp-cell>
+  <mp-cell title="标题">
+    <input
+      value="{{formData.title}}"
+      placeholder="内容长度不少于 5 个字"
+      bindinput="handleInput"
+      data-field="title"
+    />
+  </mp-cell>
+  <mp-cell title="所属分类">
+    <picker range="{{cage}}" range-key="name">
+      <view wx:if="{{categoryPickerIndex !== null}}"></view>
+    </picker>
+  </mp-cell>
+
+</mp-form>
+
