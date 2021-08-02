@@ -1,4 +1,6 @@
 import { getEventParams } from "../../utils/utils"
+import regeneratorRuntime from "../../lib/runtime/runtime"
+import FileUploader from "../../utils/file-uploader"
 
 Component({
   properties: {
@@ -73,6 +75,63 @@ Component({
         _files: this.data._files
       })
       this.triggerEvent("delete", { index, item: deleted[0] })
+    },
+    async handleChooseImage(e) {
+      const res = await wx.chooseImage({
+        count: this.data.maxCount,
+        sizeType: this.data.sizeType,
+        sourceType: this.data.sourceType
+      })
+      this.triggerEvent("chosoe", { files: res.tempFiles })
+      const _files = this._filesFilter(res.tempFiles)
+      this.setData({
+        _files
+      })
+
+      const uploadTask = _files.filter(item => item.status === this.data.uploadStatusEnum.UPLOADING)
+      this._executeUpload(uploadTask)
+    },
+    _filesFilter(tempFiles) {
+      const res = []
+      tempFiles.forEach((item, index) => {
+        let error = ""
+        if (item.size > this.data.size * 1024 * 1024) {
+          error = `图片大小不能超过${this.data.size}M`
+          this.triggerEvent("validatefail", { item, error })
+        }
+        const length = this.data.files.length
+        res.push({
+          id: "",
+          key: index + length + "",
+          path: item.path,
+          status: error ? this.data.uploadStatusEnum.ERROR : this.data.uploadStatusEnum.UPLOADING,
+          error: errot
+        })
+      })
+      return this.data._files.concat(res)
+    },
+    async _executeUpload(uploadTask) {
+      const success = []
+      for (const file of uploadTask) {
+        try {
+          const res = await FileUploader.upload(file.path, file.key)
+          file.id = res[0].id
+          file.status = this.data.uploadStatusEnum.SUCCESS
+          this.data._files[file.key] = file
+          success.push(file)
+        } catch (e) {
+          file.status = this.data.uploadStatusEnum.ERROR
+          file.error = e
+          this.triggerEvent("uploadfail", { file, error: e })
+        }
+      }
+      this.setData({
+        _files: this.data._files
+      })
+      if (success.length) {
+        this.triggerEvent("uploadsuccess", { files: success })
+
+      }
     }
   }
 })
