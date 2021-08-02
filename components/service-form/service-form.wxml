@@ -1,23 +1,44 @@
 <mp-form>
   <mp-cell title="发布类型">
-    <picker range="{{typeList}}" range-key="name">
+    <picker range="{{typeList}}" range-key="name" bindchange="handleTypeChange">
       <view wx:if="{{typePickerIndex !== null}}">{{typeList[typePickerIndex].name}}</view>
       <view wx:else class="picker-placeholder">请选择发布类型</view>
     </picker>
   </mp-cell>
   <mp-cell title="标题">
-    <input
-      value="{{formData.title}}"
-      placeholder="内容长度不少于 5 个字"
-      bindinput="handleInput"
-      data-field="title"
-    />
+    <input value="{{formData.title}}" placeholder="内容长度不少于 5 个字" bindinput="handleInput" data-field="title" />
   </mp-cell>
   <mp-cell title="所属分类">
-    <picker range="{{cage}}" range-key="name">
-      <view wx:if="{{categoryPickerIndex !== null}}"></view>
+    <picker range="{{categoryList}}" range-key="name" bindchange="handleCategoryChange">
+      <view wx:if="{{categoryPickerIndex !== null}}">
+        {{categoryList[categoryPickerIndex].name}}
+      </view>
+      <view wx:else>请选择分类</view>
     </picker>
   </mp-cell>
-
+  <mp-cell title="封面图"></mp-cell>
+  <mp-cell title="服务描述">
+    <textarea class="desc-textarea" bindinput="handleInput" data-field="description" value="{{formData.description}}" placeholder="必填,内容不少于20个字"></textarea>
+  </mp-cell>
+  <mp-cell title="提供地点">
+    <switch checked="{{formData.designated_place}}" bindchange="handleSwitchChange" />
+  </mp-cell>
+  <mp-cell title="开始日期">
+    <picker mode="data" value="{{formData.begin_date}}" bind:change="handleBeginDateChange">
+      <view wx:if="{{formData.begin_date}}">{{formData.begin_date}}</view>
+      <view wx:else class="picker-placeholder">服务内容有效期开始日期</view>
+    </picker>
+  </mp-cell>
+  <mp-cell title="结束日期">
+    <picker mode="data" value="{{formData.end_date}}" bind:change="handleEndDateChange">
+      <view wx:if="{{formData.end_date}}">{{formData.end_date}}</view>
+      <view wx:else class="picker-placeholder">服务内容有效期结束日期</view>
+    </picker>
+  </mp-cell>
+  <mp-cell title="价格">
+    <input value="{{formData.price}}" bindinput="handleInput" data-field="price" placeholder="服务价格 不少于 1" />
+  </mp-cell>
+  <view class="form-floor">
+    <i-button size="long" shape="circle" bind:tap="submit">提交审核</i-button>
+  </view>
 </mp-form>
-

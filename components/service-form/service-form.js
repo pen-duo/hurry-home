@@ -1,23 +1,39 @@
-// components/service-form/service-form.js
+import serviceType from "../../enum/service-type"
+import { getEventParams } from "../../utils/utils"
+
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
-
+    form: Object
   },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
-
+    typeList: [
+      {
+        id: serviceType.SEEK,
+        name: "提供服务"
+      }, {
+        id: serviceType.SEEK,
+        name: "找服务"
+      }
+    ],
+    typePickerIndex: null
   },
-
-  /**
-   * 组件的方法列表
-   */
+  lifetimes: {
+    attached() {
+      this._init()
+    }
+  },
   methods: {
-
+    _init() {
+      const index = this.data.typeList.findIndex(item => this.form.type === item.id)
+      this.setData({
+        typePickerIndex: index !== -1 ? index : null
+      })
+    },
+    handleTypeChange(e) {
+      const index = getEventParams(e, "value")
+      this.setData({
+        typePickerIndex: index
+      })
+    }
   }
 })
