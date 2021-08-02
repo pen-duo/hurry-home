@@ -1,4 +1,5 @@
-// components/image-uploader/image-uploader.js
+import { getEventParams } from "../../utils/utils"
+
 Component({
   properties: {
     // 默认展示图片文件
@@ -49,6 +50,7 @@ Component({
     }
   },
   data: {
+    _files: [],
     uploadStatusEnum: {
       ERROR: 0,
       UPLOADING: 1,
@@ -56,5 +58,21 @@ Component({
     }
   },
   methods: {
+    handlePreview(e) {
+      const index = getEventParams(e, "index")
+      const urls = this.data._files.map(item => item.path)
+      wx.previewImage({
+        urls,
+        current: urls[index]
+      })
+    },
+    handleDelete(e) {
+      const index = getEventParams(e, "index")
+      const deleted = this.data._files.splice(index, 1)
+      this.setData({
+        _files: this.data._files
+      })
+      this.triggerEvent("delete", { index, item: deleted[0] })
+    }
   }
 })
