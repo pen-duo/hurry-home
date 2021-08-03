@@ -1,4 +1,6 @@
-// pages/service-edit/service-edit.js
+import regeneratorRuntime from "../../lib/runtime/runtime"
+import Service from "../../modal/service"
+import { getEventParams } from "../../utils/utils"
 Page({
 
   /**
@@ -12,55 +14,48 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const service = JSON.parse(options.service)
+    console.log(service);
+    this._init(service)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  _init(service) {
+    const formData = {
+      type: service.type,
+      title: service.title,
+      category_id: service.category_id,
+      cover_image: service.cover_image,
+      description: service.description,
+      designated_place: service.designated_place,
+      begin_date: service.begin_date,
+      end_date: service.end_date,
+      price: service.price
+    }
+    this.setData({
+      formData,
+      serviceId: service.id
+    })
   },
+  async handleSubmit(e) {
+    const res = await wx.showModal({
+      title: "提示",
+      content: "是否确认修改该服务?提交后会重新进入审核状态 ",
+      showCancel: true
+    })
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+    if (!res.confirm) {
+      return
+    }
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    wx.showLoading({ title: "正在审核...", mask: true })
+    try {
+      await Service.editService(this.data.serviceId, e.detail.formData)
+      wx.redirectTo({
+        url: `/pages/publisher-success/publisher-success?type=${e.detail.formData.type}`
+      })
+    } catch (e) {
+      console.log(e);
+    }
+    wx.hideLoading()
   }
 })
