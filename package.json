@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/pen-duo/hurry-home#readme",
   "dependencies": {
+    "mobx-miniprogram": "^4.13.2",
+    "mobx-miniprogram-bindings": "^2.0.0",
     "tim-upload-plugin": "^1.0.3",
     "tim-wx-sdk-ws": "^2.12.0"
   }

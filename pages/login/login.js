@@ -1,6 +1,7 @@
 import regeneratorRuntime from "../../lib/runtime/runtime";
 import User from "../../modal/user";
-
+import { createStoreBindings } from 'mobx-miniprogram-bindings'
+import { timStore } from '../../store/tim'
 Page({
   /**
    * 页面的初始数据
@@ -10,8 +11,15 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
-
+  onLoad: function (options) {
+    this.storeBindings = createStoreBindings(this, {
+      store: timStore,
+      actions: { timLogin: "login" }
+    })
+  },
+  onUnload: function (options) {
+    this.storeBindings.destroyStoreBindings()
+  },
   async handleLogin() {
     const res = await wx.getUserProfile({
       desc: "完善用户信息",
@@ -23,6 +31,7 @@ Page({
     try {
       await User.login();
       await User.updateUserInfo(res.userInfo);
+      this.timLogin()
       const events = this.getOpenerEventChannel();
       events.emit("login");
       wx.navigateBack();

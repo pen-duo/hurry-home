@@ -1,5 +1,9 @@
 import Tim from "../../modal/tim"
+import TIM from "tim-wx-sdk-ws"
+import { async } from "../../lib/runtime/runtime"
 
+import { createStoreBindings } from 'mobx-miniprogram-bindings'
+import { timStore } from '../../store/tim'
 // pages/conversation/conversation.js
 Page({
 
@@ -14,9 +18,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const userId = 43
-    Tim.getInstance().login()
-    Tim.getInstance().getMessageList(userId)
+    this.storeBindings = createStoreBindings(this, {
+      store: timStore,
+      fields: ['sdkReady'],
+    })
   },
-
+  onUnload: function (options) {
+    this.storeBindings.destroyStoreBindings()
+  },
 })

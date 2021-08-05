@@ -3,6 +3,9 @@ import APIConfig from "../config/api";
 import exceptionMessage from "../config/exception";
 import cache from "../enum/cache";
 import User from "../modal/user";
+import { timStore } from "../store/tim";
+import { createStoreBindings } from "mobx-miniprogram-bindings";
+
 class Http {
   static async request({ url, data, method = "Get", refetch = true }) {
     return new Promise((resolve, reject) => {
@@ -19,7 +22,15 @@ class Http {
             return;
           }
           if (res.statusCode === 401) {
+            this.storeBindings = createStoreBindings(this, {
+              store: timStore,
+              actions: { timLogout: "logout" },
+              fields: ["sdkReady"]
+            })
             if (res.data.error_code === 10001) {
+              if (this.sdkReady) {
+                this.timLogout()
+              }
               wx.navigateTo({
                 url: "/pages/login/login",
               });
@@ -27,6 +38,9 @@ class Http {
             }
             if (refetch) {
               return await Http._refetch({ url, data, method, refetch });
+            }
+            if (this.sdkReady) {
+              this.timLogout()
             }
           }
           Http._showError(res.data.error_code, res.data.message);
