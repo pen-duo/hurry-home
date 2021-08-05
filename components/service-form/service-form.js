@@ -2,6 +2,7 @@ import serviceType from "../../enum/service-type"
 import Category from "../../modal/category"
 import { getDataSet, getEventParams } from "../../utils/utils"
 import regeneratorRuntime from "../../lib/runtime/runtime"
+import moment from "../../lib/moment/moment"
 
 Component({
   properties: {
@@ -98,13 +99,23 @@ Component({
         ],
       },
     ],
+    error: null,
+    resetForm: true,
+    serviceTypeEnum: serviceType
   },
-  observers: {
-    form: function (newValue) {
-      if (!newValue) {
-        return
+  pageLifetimes: {
+    show() {
+      if (this.data.resetForm) {
+        this._init(this.data.form)
       }
-      this._init()
+      this.data.resetForm = true
+    },
+    hide() {
+      if (this.data.resetForm) {
+        this.setData({
+          showForm: false
+        })
+      }
     }
   },
   methods: {
@@ -115,6 +126,7 @@ Component({
       const categoryPickerIndex = categoryList.findIndex(item => this.data.form.category_id === item.id)
 
       this.setData({
+        showForm: true,
         typePickerIndex: typePickerIndex !== -1 ? typePickerIndex : null,
         files: this.data.form.cover_image ? [this.data.form.cover_image] : [],
         formData: {
@@ -133,7 +145,16 @@ Component({
       })
     },
     submit() {
-      this.triggerEvent("submit", { formData: this.data.formData })
+      this.selectComponent("#form").validate((valid, error) => {
+        if (!valid) {
+          const errMsg = errors.map(error => error.message)
+          this.setData({
+            error: errMsg.join(";")
+          })
+          return
+        }
+        this.triggerEvent("submit", { formData: this.data.formData })
+      })
     },
     handleTypeChange(e) {
       const index = getEventParams(e, "value")
@@ -179,6 +200,9 @@ Component({
       this.setData({
         ['formData.cover_image_id']: id
       })
+    },
+    handleHidePage() {
+      this.data.resetForm = false
     }
   }
 })

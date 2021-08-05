@@ -5,9 +5,7 @@ import Token from "./token";
 
 class User {
   static getUserInfoByLocal() {
-    return wx.getStorage({
-      key: cache.USER_INFO,
-    });
+    return wx.getStorageSync(cache.USER_INFO);
   }
   static async login() {
     const token = await Token.getToken();

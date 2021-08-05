@@ -62,7 +62,6 @@ Component({
     methods: {
         handlePreview: function (event) {
             this.triggerEvent('hidepage')
-
             const index = event.currentTarget.dataset.index
             this.triggerEvent('preview', { index, item: this.data._files })
             const urls = this.data._files.map(item => item.path)
@@ -103,7 +102,7 @@ Component({
             this._executeUpload(uploadTask)
 
         },
-
+        
         _fileFilter(tempFiles) {
             const res = []
             tempFiles.forEach((item, index) => {

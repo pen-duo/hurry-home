@@ -5,6 +5,7 @@ const service = new Service()
 import {
   throttle
 } from "../../utils/utils"
+import Tim from "../../modal/tim"
 Page({
 
   /**
@@ -33,6 +34,7 @@ Page({
    */
   onLoad: async function (options) {
     await this._getServiceList()
+    Tim.getInstance()
     await this._getCategoryList()
     this.setData({
       loading: false

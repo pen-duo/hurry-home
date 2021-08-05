@@ -13,6 +13,7 @@
     "pages/order-success/order-success",
     "pages/my-order/my-order",
     "pages/publisher-success/publisher-success"
+ 
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -65,7 +66,9 @@
     "i-button": "/components/button/button",
     "mp-msg": "weui-miniprogram/msg/msg",
     "mp-form": "weui-miniprogram/form/form",
-    "mp-cell": "weui-miniprogram/cell/cell"
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-toptips": "weui-miniprogram/toptips/toptips"
   },
   "useExtendedLib": {
     "weui": true
