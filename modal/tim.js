@@ -55,7 +55,7 @@ class Tim {
         return this
     }
     login() {
-      
+
         const userInfo = User.getUserInfoByLocal()
         const textUserSig = genTestUserSig(userInfo.id.toString())
         this._SDKInstance.login({
@@ -67,10 +67,45 @@ class Tim {
         this._SDKInstance.logout()
     }
     async setMessageRead(targetUserId) {
-        const res = await this._SDKInstance.setMessageRead({
-            conversationID: `C2C${targetUserId}`
-        })
-        return res.data
+            const res = await this._SDKInstance.setMessageRead({
+                conversationID: `C2C${targetUserId}`
+            })
+            return res.data
+        }
+        // 根据不同的类型创建不同的实例(工厂模式)
+    createMessage(type, content, targetUserId, extension = null) {
+        // 测试先用user1
+        targetUserId = "user1"
+        let message
+        const params = {
+            to: targetUserId,
+            conversationType: TIM.TYPES.CONV_C2C,
+            payload: null
+        }
+        switch (type) {
+            case TIM.TYPES.MSG_TEXT:
+                params.payload = { text: content }
+                message = this._SDKInstance.createTextMessage(params)
+                break
+            case TIM.TYPES.MSG_IMAGE:
+                params.payload = { file: content }
+                message = this._SDKInstance.createImageMessage(params)
+                break
+            case TIM.TYPES.MSG_CUSTOM:
+                params.payload = {
+                    data: "service",
+                    description: JSON.stringify(content),
+                    extension
+                }
+                message = this._SDKInstance.createImageMessage(params)
+                break
+            default:
+                throw Error("未知消息类型")
+        }
+        return message
+    }
+    async sendMessage(message) {
+        this._SDKInstance.sendMessage(message)
     }
 }
 

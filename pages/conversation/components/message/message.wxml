@@ -1,18 +1,18 @@
 <view class="container">
     <view class="time">{{_message.time}}</view>
-    <view class="message-area" style="{{_message.flow === flowRnum.IN ? '' : 'flex-direction:row-reverse'}}">
+    <view class="message-area" style="{{_message.flow === flowEnum.IN ? '':'flex-direction: row-reverse;'}}">
         <view class="avatar">
             <image class="avatar-image" src="{{_message.avatar}}" />
         </view>
-        <view class="content" style="background-color:{{_message.flow === flowRnum.IN ?'#fff' :'#f3d066' }}">
+        <view class="content" style="background-color: {{_message.flow === flowEnum.IN ? '#fff':'#f3d066'}}">
             <block wx:if="{{_message.type === TIM.TYPES.MSG_TEXT}}">
                 {{_message.payload.text}}
             </block>
             <block wx:if="{{_message.type === TIM.TYPES.MSG_IMAGE}}">
-                <image src="{{_message.payload.imageInfoArray[1].url}}" />
+                <image mode="center" bind:tap="handlePreview" data-image="{{_message.payload.imageInfoArray[1].url}}" src="{{_message.payload.imageInfoArray[1].url}}" />
             </block>
             <block wx:if="{{_message.type === TIM.TYPES.MSG_CUSTOM}}">
-                <i-service-card></i-service-card>
+                <i-service-link flow="{{_message.flow}}" service="{{_message.payload.description}}" bind:send="handleSend" bind:select="handleSelect"></i-service-link>
             </block>
         </view>
     </view>
