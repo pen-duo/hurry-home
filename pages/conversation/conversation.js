@@ -4,23 +4,33 @@ import { async } from "../../lib/runtime/runtime"
 
 import { createStoreBindings } from 'mobx-miniprogram-bindings'
 import { timStore } from '../../store/tim'
-// pages/conversation/conversation.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    targetUserId: null,
+    service: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
+    console.log(options);
     this.storeBindings = createStoreBindings(this, {
       store: timStore,
       fields: ['sdkReady'],
+    })
+    this.setData({
+      targetUserId: options.targetUserId,
+      service: options.service
+    })
+  },
+  handleLogin() {
+    wx.navigateTo({
+      url: "/pages/login/login"
     })
   },
   onUnload: function (options) {

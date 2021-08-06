@@ -77,6 +77,7 @@ Page({
   },
   handleChat() {
     const targetUserId = this.data.service.publisher.id;
+    console.log(targetUserId);
     const service = JSON.stringify(this.data.service);
     wx.navigateTo({
       url: `/pages/conversation/conversation?targetUserId=${targetUserId}&service=${service}`,

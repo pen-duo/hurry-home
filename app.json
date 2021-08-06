@@ -12,8 +12,8 @@
     "pages/order/order",
     "pages/order-success/order-success",
     "pages/my-order/my-order",
-    "pages/publisher-success/publisher-success"
- 
+    "pages/publisher-success/publisher-success",
+    "pages/conversation/components/conversation-window/conversation-window"
   ],
   "window": {
     "backgroundTextStyle": "dark",

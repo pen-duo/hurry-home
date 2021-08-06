@@ -48,13 +48,14 @@ class Tim {
         this._messageList = res.data.messageList
         return this._messageList
     }
-    _reset() {
+    reset() {
         this._nextReqMessageID = ''
         this.isCompleted = false
         this._messageList = []
         return this
     }
     login() {
+      
         const userInfo = User.getUserInfoByLocal()
         const textUserSig = genTestUserSig(userInfo.id.toString())
         this._SDKInstance.login({
@@ -64,6 +65,12 @@ class Tim {
     }
     logout() {
         this._SDKInstance.logout()
+    }
+    async setMessageRead(targetUserId) {
+        const res = await this._SDKInstance.setMessageRead({
+            conversationID: `C2C${targetUserId}`
+        })
+        return res.data
     }
 }
 

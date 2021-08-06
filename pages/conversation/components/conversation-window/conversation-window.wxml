@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="message-list">
+        <view wx:for="{{messageList}}" wx:key="index">
+            <i-message message="{{item}}"></i-message>
+        </view>
+    </view>
+    <view class="action-bar">
+        <i-icon name="picture" bind:tap="handleSendImage"></i-icon>
+        <textarea bind:tap="handleInput"></textarea>
+        <i-button shape="circle" size="mini" bind:tap="handleSend">发送</i-button>
+    </view>
+    <i-safe-area area="bottom"></i-safe-area>
+</view>

@@ -23,6 +23,12 @@ class User {
     });
     wx.setStorageSync(cache.USER_INFO, res);
   }
+  static async getUserSign() {
+    return await Http.request({
+      url: 'v1/user/sign'
+    })
+
+  }
 }
 
 export default User;
